@@ -11,7 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.0
+  font_awesome_flutter: ^10.2.1
 
 flutter:
   assets:
-    - assets/images/logo.png
+    - assets/images/sloganSisGeps.png
+    - assets/images/sloganDelivery.png
