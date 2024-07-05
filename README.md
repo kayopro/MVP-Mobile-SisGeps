@@ -44,16 +44,15 @@ Este é um MVP Mobile em sua versão inicial. Ele apresenta funcionalidades esse
 
 <h2>Apresentação Audiovisual no Youtube do SisGeps Mobile</h2> 
 <p>            
-    <a href="https://youtu.be/VpZJPhAZrUo" target="_blank"> <li> Vídeo explicativo MVP Mobile - Versão 1.0 (Disciplina: Projeto Integrado IV)
-    </li></a> 
+    <a href="https://youtu.be/VpZJPhAZrUo" target="_blank"> Vídeo explicativo MVP Mobile - Versão 1.0 (Disciplina: Projeto Integrado IV) </a> 
 </p>
 
 <h2>Apresentação Audiovisual no Youtube do SisGeps WEB</h2> 
 <p>            
-    <a href="https://youtu.be/VpZJPhAZrUo" target="_blank"> <li> Vídeo explicativo MVP web funcional - Versão 1.0 </li></a> 
+    <a href="https://youtu.be/VpZJPhAZrUo" target="_blank"> Vídeo explicativo MVP web funcional - Versão 1.0 </a> 
 </p> 
 <p>            
-    <a href="https://youtu.be/oZeYe5YYws8" target="_blank">  <li>Vídeo explicativo MVP web funcional - Versão 2.0 (Disciplina: Desenvolvimento para Web) </li></a> 
+    <a href="https://youtu.be/oZeYe5YYws8" target="_blank"> Vídeo explicativo MVP web funcional - Versão 2.0 (Disciplina: Desenvolvimento para Web) </a> 
 </p>
 
 <br>
