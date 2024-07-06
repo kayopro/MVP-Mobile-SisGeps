@@ -1,4 +1,4 @@
-name: SisGeps
+name: mobile_app
 description: Sistema móvel para gerenciamento de estoque.
 
 publish_to: 'none'
@@ -12,6 +12,16 @@ dependencies:
     sdk: flutter
   provider: ^6.0.0
   font_awesome_flutter: ^10.2.1
+  firebase_core: ^3.1.1
+  firebase_auth: ^5.1.1
+
+dev_dependencies:
+  flutter_test: 
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  
+mobile_app: 
+  path: C:\Users\mathe\Documents\ads-ufca\4-modulo\projeto-integrado-4\MVP-Mobile-SisGeps\mobile_app
 
 flutter:
   assets:

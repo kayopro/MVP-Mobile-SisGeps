@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27998383028",
+    "project_id": "sisgepsmobile",
+    "storage_bucket": "sisgepsmobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27998383028:android:d3790bbb47f67bde9820e1",
+        "android_client_info": {
+          "package_name": "com.example.mobile_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2jN2YWD9CUAQtpU1Hzipd7vf1Fucpb9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
