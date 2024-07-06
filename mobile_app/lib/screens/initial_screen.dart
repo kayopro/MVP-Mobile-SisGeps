@@ -6,13 +6,10 @@ class InitialScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-        //title: Text('SisGeps'),
-      //),
       body: Column(
         children: [
           Expanded(
-            flex: 8, // Proporção maior para a parte superior
+            flex: 7, // Proporção maior para a parte superior
             child: Container(
               color: Color.fromRGBO(220, 233, 226, 1), // Cor da parte superior
               alignment: Alignment.topCenter,
@@ -22,7 +19,7 @@ class InitialScreen extends StatelessWidget {
                   Center(
                     child: Image.asset(
                       'assets/images/sloganSisGeps.png',
-                      height: 200, // Ajuste a altura da imagem conforme necessário
+                      height: 100, // Ajuste a altura da imagem conforme necessário
                       width: MediaQuery.of(context).size.width * 0.8, // Ajuste a largura da imagem conforme necessário
                       fit: BoxFit.contain, // Ajuste para manter a proporção da imagem
                     ),
@@ -30,23 +27,27 @@ class InitialScreen extends StatelessWidget {
                   Center(
                     child: Image.asset(
                       'assets/images/sloganDelivery.png',
-                      height: 300,
-                      //width: MediaQuery.of(context).size.width * 0.8,
+                      height: 200,
                       fit: BoxFit.contain,
                     ),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'A melhor ferramenta para gerenciar o seu estoque de forma inteligente!',
+                    'A melhor ferramenta para gerenciar o seu estoque de forma inteligente.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 14, 
+                      fontWeight: FontWeight.normal,
+                      fontStyle: FontStyle.normal,
+                      letterSpacing: 0.5,
+                      color: Colors.black87,),
                   ),
                 ],
               ),
             ),
           ),
           Expanded(
-            flex: 2, // Proporção menor para a parte inferior
+            flex: 3, // Proporção menor para a parte inferior
             child: Container(
               color: Colors.white, // Cor da parte inferior
               child: Padding(
@@ -56,23 +57,35 @@ class InitialScreen extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
+                        print("Botão Entrar clicado"); // Log de depuração
+                        /*Navigator.pushNamed(context, '/login');*/ //outra opção navegar pra tela de login
+                        Navigator.of(context).push(
+                          //context,
                           MaterialPageRoute(builder: (context) => LoginScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.blue,
-                        minimumSize: Size(290, 50), // Tamanho mínimo do botão
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue,
+                        minimumSize: Size(250, 50), // Tamanho mínimo do botão
                       ),
-                      child: Text('Entrar na conta SisGeps'),
+                      child: Text(
+                        'Entrar na conta SisGeps',
+                        ),
                     ),
-                    SizedBox(height: 14),
+                    SizedBox(height: 10),
                     Text(
                       'Clique para acessar ou criar sua conta SisGeps',
                       textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: 0.5,
+                        color: Colors.black87,
+                      ),
                     ),
-                    SizedBox(height: 14),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -1,73 +1,93 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'forgot_password_screen.dart';
-import 'register_screen.dart';
-import 'home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+class LoginScreen extends StatelessWidget {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
+      backgroundColor: Color.fromRGBO(220, 233, 226, 1),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset('assets/images/logo.png'),
-            SizedBox(height: 20),
-            Text('Faça o login na sua conta e tenha acesso ao estoque e a todas as ferramentas do SisGeps'),
-            SizedBox(height: 20),
+            Image.asset(
+              'assets/images/sloganSisGeps.png',
+              height: 50, // Ajuste conforme necessário
+            ),
+            SizedBox(height: 40),
+            Text(
+              'Faça o login na sua conta e tenha acesso ao estoque e a todas as ferramentas do SisGeps',
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 60),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'E-mail'),
+              decoration: InputDecoration(
+                labelText: 'Informe o seu e-mail',
+                border: OutlineInputBorder(),
+              ),
             ),
+            SizedBox(height: 6),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Senha'),
+              decoration: InputDecoration(
+                labelText: 'Informa sua Senha',
+                border: OutlineInputBorder(),
+              ),
               obscureText: true,
+            ),
+            SizedBox(height: 6),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                onPressed: () {
+                  // Navegação para tela de recuperação de senha
+                  Navigator.pushNamed(context, '/forgot_password');
+                },
+                child: Text('Esqueci minha senha', style: TextStyle(color: Colors.blue),),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Adicione aqui a lógica de autenticação
+                    Navigator.pushReplacementNamed(context, '/home'); // Exemplo de navegação para a tela inicial
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
+                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
+                  ),
+                  child: Text('Entrar'),
+                ),
+              ],
             ),
             SizedBox(height: 10),
             Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
-                  );
-                },
-                child: Text('Esqueci minha senha'),
+              alignment: Alignment.center,
+              child: RichText(
+                text: TextSpan(
+                  text: 'Não tem cadastro? ',
+                  style: TextStyle(color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Criar conta',
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Navegação para tela de registro
+                          Navigator.pushNamed(context, '/register');
+                        },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Adicione lógica de autenticação aqui
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-              child: Text('Entrar'),
-            ),
-            Text('Não tem conta?'),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                );
-              },
-              child: Text('Criar conta'),
             ),
           ],
         ),

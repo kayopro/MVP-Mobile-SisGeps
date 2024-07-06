@@ -11,15 +11,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Recuperar Conta'),
-      ),
+      backgroundColor: Color.fromRGBO(220, 233, 226, 1),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png'),
+            Image.asset('assets/images/sloganSisGeps.png', height: 50,),
             SizedBox(height: 20),
             Text('Recupere a sua conta e redefina sua senha através do email de confirmação que iremos enviar'),
             SizedBox(height: 20),
@@ -35,12 +33,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
+                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
+                  ),
                   child: Text('Cancelar'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Adicione lógica de recuperação de senha aqui
                   },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
+                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
+                  ),
                   child: Text('Enviar'),
                 ),
               ],
