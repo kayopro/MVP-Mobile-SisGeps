@@ -7,89 +7,131 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(220, 233, 226, 1),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset(
-              'assets/images/sloganSisGeps.png',
-              height: 50, // Ajuste conforme necessário
-            ),
-            SizedBox(height: 40),
-            Text(
-              'Faça o login na sua conta e tenha acesso ao estoque e a todas as ferramentas do SisGeps',
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 60),
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Informe o seu e-mail',
-                border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(screenWidth * 0.05),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: screenHeight * 0.1),
+              Image.asset(
+                'assets/images/sloganSisGeps.png',
+                height: screenHeight * 0.1,
               ),
-            ),
-            SizedBox(height: 6),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                labelText: 'Informa sua Senha',
-                border: OutlineInputBorder(),
+              SizedBox(height: screenHeight * 0.05),
+              Text(
+                'Faça o login na sua conta e tenha acesso ao estoque e a todas as ferramentas do SisGeps',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045,
+                  fontFamily: 'Roboto',
+                ),
               ),
-              obscureText: true,
-            ),
-            SizedBox(height: 6),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {
-                  // Navegação para tela de recuperação de senha
-                  Navigator.pushNamed(context, '/forgot_password');
-                },
-                child: Text('Esqueci minha senha', style: TextStyle(color: Colors.blue),),
+              SizedBox(height: screenHeight * 0.05),
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  labelText: 'Informe o seu e-mail',
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045,
+                  fontFamily: 'Roboto',
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
+              SizedBox(height: screenHeight * 0.02),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  labelText: 'Informe sua Senha',
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+                obscureText: true,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
                   onPressed: () {
-                    // Adicione aqui a lógica de autenticação
-                    Navigator.pushReplacementNamed(context, '/home'); // Exemplo de navegação para a tela inicial
+                    Navigator.pushNamed(context, '/forgot_password');
                   },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
-                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
-                  ),
-                  child: Text('Entrar'),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.center,
-              child: RichText(
-                text: TextSpan(
-                  text: 'Não tem cadastro? ',
-                  style: TextStyle(color: Colors.black),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'Criar conta',
-                      style: TextStyle(color: Colors.blue),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // Navegação para tela de registro
-                          Navigator.pushNamed(context, '/register');
-                        },
+                  child: Text(
+                    'Esqueci minha senha',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: screenWidth * 0.045,
+                      fontFamily: 'Roboto',
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: screenHeight * 0.02),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/home');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue,
+                      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                    ),
+                    child: Text(
+                      'Entrar',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.045,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Align(
+                alignment: Alignment.center,
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Não tem cadastro? ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: screenWidth * 0.045,
+                      fontFamily: 'Roboto',
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Criar conta',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: screenWidth * 0.045,
+                          fontFamily: 'Roboto',
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

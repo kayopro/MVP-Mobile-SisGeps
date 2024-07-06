@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'confirmation_screen.dart'; 
 
 class ForgotPasswordScreen extends StatefulWidget {
   @override
@@ -10,6 +11,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(220, 233, 226, 1),
       body: Padding(
@@ -17,37 +21,77 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/sloganSisGeps.png', height: 50,),
-            SizedBox(height: 20),
-            Text('Recupere a sua conta e redefina sua senha através do email de confirmação que iremos enviar'),
-            SizedBox(height: 20),
+            Image.asset(
+              'assets/images/sloganSisGeps.png',
+              height: screenHeight * 0.1, // Ajuste conforme necessário
+            ),
+            SizedBox(height: screenHeight * 0.03),
+            Text(
+              'Recupere a sua conta e redefina sua senha através do email de confirmação que iremos enviar',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16.0, // Tamanho de fonte ajustado para um padrão comum
+                fontFamily: 'Roboto',
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.03),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'E-mail'),
+              decoration: InputDecoration(
+                labelText: 'Informe o e-mail cadastrado',
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.white,
+              ),
+              style: TextStyle(
+                fontSize: 16.0, // Tamanho de fonte ajustado para um padrão comum
+                fontFamily: 'Roboto',
+              ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.03),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context); // Voltar para a tela anterior
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
-                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0), // Espaçamento horizontal ajustado
                   ),
-                  child: Text('Cancelar'),
+                  child: Text(
+                    'Cancelar',
+                    style: TextStyle(
+                      fontSize: 16.0, // Tamanho de fonte ajustado para um padrão comum
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Adicione lógica de recuperação de senha aqui
+                    // Navegar para a tela de confirmação
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ConfirmationScreen(email: _emailController.text.trim()),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Texto branco
-                    padding: EdgeInsets.symmetric(horizontal: 20), // Espaçamento horizontal
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0), // Espaçamento horizontal ajustado
                   ),
-                  child: Text('Enviar'),
+                  child: Text(
+                    'Enviar',
+                    style: TextStyle(
+                      fontSize: 16.0, // Tamanho de fonte ajustado para um padrão comum
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
                 ),
               ],
             ),
