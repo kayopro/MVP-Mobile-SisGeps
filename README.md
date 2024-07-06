@@ -44,7 +44,7 @@ Este é um MVP Mobile em sua versão inicial. Ele apresenta funcionalidades esse
 
 <h2>Apresentação Audiovisual no Youtube do SisGeps Mobile</h2> 
 <p>            
-    <a href="https://youtu.be/VpZJPhAZrUo" target="_blank"> Vídeo explicativo MVP Mobile - Versão 1.0 (Disciplina: Projeto Integrado IV) </a> 
+    <a href="https://youtu.be/ewDg7jbxOdo" target="_blank"> Vídeo explicativo MVP Mobile - Versão 1.0 (Disciplina: Projeto Integrado IV) </a> 
 </p>
 
 <h2>Apresentação Audiovisual no Youtube do SisGeps WEB</h2> 
